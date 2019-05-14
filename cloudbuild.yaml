@@ -11,6 +11,6 @@ steps:
     - 'image'
     - 'deployment/my-deployment'
     - 'my-container=gcr.io/the-slate-240604/ci-cd:0.1.0'
-env:
-  - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=ci-cd'
+    env:
+    - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
+    - 'CLOUDSDK_CONTAINER_CLUSTER=ci-cd'
