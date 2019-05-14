@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['install',' --production']
+    args: ['install','--production']
   - name: 'gcr.io/cloud-builders/docker'
     args: ["build", "-t", "gcr.io/the-slate-240604/ci-cd:0.1.0", "."]
   - name: 'gcr.io/cloud-builders/docker'
