@@ -2,15 +2,15 @@ steps:
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install','--production']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ["build", "-t", "gcr.io/the-slate-240604/ci-cd:0.1.0", "."]
+    args: ["build", "-t", "gcr.io/the-slate-240604/ci-cd:$REVISION_ID", "."]
   - name: 'gcr.io/cloud-builders/docker'
-    args: ["push", "gcr.io/the-slate-240604/ci-cd:0.1.0"]
+    args: ["push", "gcr.io/the-slate-240604/ci-cd:$REVISION_ID"]
   - name: 'gcr.io/cloud-builders/kubectl'
     args:
     - 'set'
     - 'image'
     - 'deployment/ci-cd'
-    - 'ci-cd=gcr.io/the-slate-240604/ci-cd:0.1.0'
+    - 'ci-cd=gcr.io/the-slate-240604/ci-cd:$REVISION_ID'
     env:
     - 'CLOUDSDK_COMPUTE_ZONE=us-west1-a'
     - 'CLOUDSDK_CONTAINER_CLUSTER=ci-cd'
